@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const InputTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.6rem;
-`;
+`
 
 export const Label = styled.label`
   margin-bottom: 0.4rem;
@@ -13,7 +13,7 @@ export const Label = styled.label`
   line-height: 1.6;
   text-transform: uppercase;
   color: #2e3a59;
-`;
+`
 
 export const Input = styled.input`
   width: 100%;
@@ -36,4 +36,4 @@ export const Input = styled.input`
     color: #c5cef4;
     font-weight: 400;
   }
-`;
+`

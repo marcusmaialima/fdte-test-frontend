@@ -1,7 +1,7 @@
-import React from "react";
-import { Route, BrowserRouter, Switch } from "react-router-dom";
+import React from 'react'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
-import MapPage from "pages/Map";
+import MapPage from 'pages/Map'
 
 const Routes = () => {
   return (
@@ -10,7 +10,7 @@ const Routes = () => {
         <Route component={MapPage} path="/map" />
       </Switch>
     </BrowserRouter>
-  );
-};
+  )
+}
 
-export default Routes;
+export default Routes

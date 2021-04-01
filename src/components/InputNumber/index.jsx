@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import chevron from "assets/images/chevronDownBlack.png";
+import chevron from 'assets/images/chevronDownBlack.png'
 
-import * as S from "./styled";
+import * as S from './styled'
 
 const InputNumber = ({ className, label, placeholder, name, suffix }) => (
   <S.InputNumberWrapper className={className}>
@@ -19,6 +19,6 @@ const InputNumber = ({ className, label, placeholder, name, suffix }) => (
       </S.InputActions>
     </S.InputContent>
   </S.InputNumberWrapper>
-);
+)
 
-export default InputNumber;
+export default InputNumber

@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const InputNumberWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.6rem;
-`;
+`
 
 export const Label = styled.label`
   margin-bottom: 0.4rem;
@@ -13,11 +13,11 @@ export const Label = styled.label`
   line-height: 1.6;
   text-transform: uppercase;
   color: #2e3a59;
-`;
+`
 
 export const InputContent = styled.div`
   position: relative;
-`;
+`
 
 export const Input = styled.input`
   width: 100%;
@@ -41,7 +41,7 @@ export const Input = styled.input`
     font-weight: 400;
   }
 
-  &[type="number"] {
+  &[type='number'] {
     -moz-appearance: textfield;
   }
 
@@ -50,7 +50,7 @@ export const Input = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
-`;
+`
 
 export const InputSuffix = styled.span`
   position: absolute;
@@ -61,7 +61,7 @@ export const InputSuffix = styled.span`
   font-size: 1.6rem;
   line-height: 1.6;
   color: #2e3a59;
-`;
+`
 export const InputActions = styled.div`
   position: absolute;
   right: 2px;
@@ -74,7 +74,7 @@ export const InputActions = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #e4e9f2;
-`;
+`
 
 export const Arrow = styled.img`
   transition: all 0.2s;
@@ -87,4 +87,4 @@ export const Arrow = styled.img`
   &.increase {
     transform: rotate(180deg);
   }
-`;
+`

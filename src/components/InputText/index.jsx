@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import * as S from "./styled";
+import * as S from './styled'
 
 const InputText = ({ className, label, type, placeholder, name }) => (
   <S.InputTextWrapper className={className}>
@@ -8,6 +8,6 @@ const InputText = ({ className, label, type, placeholder, name }) => (
 
     <S.Input type={type} placeholder={placeholder} name={name} />
   </S.InputTextWrapper>
-);
+)
 
-export default InputText;
+export default InputText

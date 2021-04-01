@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const DropdownWrapper = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ export const DropdownWrapper = styled.div`
   margin-bottom: 1.6rem;
 
   padding: 20px;
-`;
+`
 
 export const Label = styled.label`
   margin-bottom: 0.4rem;
@@ -16,11 +16,11 @@ export const Label = styled.label`
   line-height: 1.6;
   text-transform: uppercase;
   color: #2e3a59;
-`;
+`
 
 export const DropdownContent = styled.div`
   position: relative;
-`;
+`
 
 export const Select = styled.select`
   width: 100%;
@@ -40,14 +40,14 @@ export const Select = styled.select`
   &:active {
     border-color: #598bff;
   }
-`;
+`
 
 export const DropdownOption = styled.option`
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2.4rem;
   color: #c5cef4;
-`;
+`
 
 export const DropdownIcon = styled.img`
   position: absolute;
@@ -57,4 +57,4 @@ export const DropdownIcon = styled.img`
   width: 2.5rem;
   height: auto;
   pointer-events: none;
-`;
+`

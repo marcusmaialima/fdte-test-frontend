@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import chevron from "assets/images/chevronDownBlack.png";
+import chevron from 'assets/images/chevronDownBlack.png'
 
-import * as S from "./styled";
+import * as S from './styled'
 
 const DropdownPage = ({ label, options }) => (
   <S.DropdownWrapper>
@@ -21,6 +21,6 @@ const DropdownPage = ({ label, options }) => (
       <S.DropdownIcon src={chevron} alt="Chevron" />
     </S.DropdownContent>
   </S.DropdownWrapper>
-);
+)
 
-export default DropdownPage;
+export default DropdownPage

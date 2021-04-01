@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import GlobalStyled from "assets/styles/globalStyled";
+import GlobalStyled from 'assets/styles/globalStyled'
 
-import Routes from "./routes";
+import Routes from './routes'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <GlobalStyled />
       <Routes />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
