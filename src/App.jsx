@@ -1,8 +1,7 @@
 import React from 'react'
 
 import GlobalStyled from 'assets/styles/globalStyled'
-
-import Routes from './routes'
+import Routes from './config/routes'
 
 function App() {
   return (
