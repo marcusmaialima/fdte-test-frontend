@@ -10,6 +10,7 @@ export default createGlobalStyle`
 
   html {
     font-size: 62.5%;
+    font-family: 'Press Start 2P', cursive;
     -ms-overflow-style: scrollbar;
   }
 
