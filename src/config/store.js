@@ -1,4 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
+import createSagaMiddleware from 'redux-saga'
+import { rootSaga } from './sagas'
+import { pokemonReducer } from './ducks/pokemon/index'
 
 const middlewares = []
 
@@ -8,7 +11,7 @@ if (process.env.NODE_ENV === `development`) {
 }
 
 const store = configureStore({
-  reducer: {},
+  reducer: { pokemonReducer },
   middleware: middlewares
 })
 
