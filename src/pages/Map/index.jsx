@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import Sidebar from 'components/Sidebar'
 
@@ -7,12 +8,15 @@ import ashFront from 'assets/images/ashFront.png'
 import ashWalking from 'assets/images/ashWalking.gif'
 import searchTooltip from 'assets/images/searchTooltip.png'
 import searchingTooltip from 'assets/images/searchingTooltip.png'
+import { requestPokemon } from 'config/ducks/pokemon'
 
 const MapPage = () => {
   const [imageBallon, setImageBallon] = useState('')
   const [topBallon, setTopBallon] = useState('6%')
   const [opacityImage, setOpacityImage] = useState(0)
   const [walking, setWalking] = useState(false)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setImageBallon(searchTooltip)
@@ -35,6 +39,10 @@ const MapPage = () => {
   function handleClickButton() {
     setImageBallon(searchingTooltip)
     setWalking(true)
+
+    const id = Math.floor(Math.random() * (807 - 1 + 1)) + 1
+
+    dispatch(requestPokemon(id))
   }
 
   return (
