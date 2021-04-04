@@ -1,23 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit'
-import createSagaMiddleware from 'redux-saga'
-import { rootSaga } from './sagas'
+// import createSagaMiddleware from 'redux-saga'
+// import { rootSaga } from './sagas'
 import { pokemonReducer } from './ducks/pokemon/index'
 
 const middlewares = []
-const sagaMiddleware = createSagaMiddleware()
+// const sagaMiddleware = createSagaMiddleware()
 
 if (process.env.NODE_ENV === `development`) {
   const { logger } = require(`redux-logger`)
   middlewares.push(logger)
 }
 
-middlewares.push(sagaMiddleware)
+// middlewares.push(sagaMiddleware)
 
 const store = configureStore({
   reducer: { pokemonReducer },
   middleware: middlewares
 })
 
-sagaMiddleware.run(rootSaga)
+// sagaMiddleware.run(rootSaga)
 
 export default store
