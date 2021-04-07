@@ -4,50 +4,49 @@ const addPokemon = createAction('pokemon/ADD_POKEMON')
 const removePokemon = createAction('pokemon/REMOVE_POKEMON')
 const listPokemon = createAction('pokemon/LIST_POKEMON')
 const updatePokemon = createAction('pokemon/UPDATE_POKEMON')
+const openCloseModal = createAction('pokemon/OPEN_CLOSE_MODAL')
 const requestPokemon = createAction('pokemon/REQUEST_POKEMON')
+const requestSuccessPokemon = createAction('pokemon/REQUEST_SUCCESS_POKEMON')
 const errorRequestPokemon = createAction('pokemon/FAIL_POKEMON')
-
-// {
-//   id: 0,
-//   pictureFront: '',
-//   name: '',
-//   hp: 0,
-//   weight: 0,
-//   height: 0,
-//   type: [],
-//   abilities: [],
-//   defense: 0,
-//   attack: 0,
-//   specialDefense: 0,
-//   specialAttack: 0,
-//   speed: 0
-// }
 
 const pokemonInitialState = {
   pokemon: [],
+  capturePokemon: [],
   error: false,
-  msgError: ''
+  msgError: '',
+  openModal: false,
+  loading: false
 }
 
-export const pokemonReducer = createReducer(pokemonInitialState, (builder) => {
+export const pokedex = createReducer(pokemonInitialState, (builder) => {
   builder
     .addCase(addPokemon, (state, action) => {
-      const quantityPokemon = state.pokemon.length
-
-      if (quantityPokemon > 6) {
-        state.error = true
-        state.msgError = 'Não é possível obter mais do que 6 pokémon'
+      if (state.capturePokemon.length >= 6) {
+        return {
+          ...state,
+          msgError: 'Não é possível procurar mais que 6 pokémon.',
+          error: true
+        }
       } else {
-        state.pokemon.push(...action.payload.pokemon)
+        return {
+          ...state,
+          pokemon: [],
+          capturePokemon: [...state.capturePokemon, { ...action.payload }]
+        }
       }
     })
     .addCase(removePokemon, (state, action) => {
-      const idPokemonSelected = action.payload.pokemon.id
+      const idPokemonSelected = action.payload
 
-      state.pokemon.filter((pokemon) => pokemon.id !== idPokemonSelected)
+      return {
+        ...state,
+        pokemon: state.pokemon.filter(
+          (pokemon) => pokemon.id !== idPokemonSelected
+        )
+      }
     })
     .addCase(listPokemon, (state) => {
-      state.pokemon
+      return state
     })
     .addCase(updatePokemon, (state, action) => {
       const pokemonSelected = action.payload.pokemon
@@ -56,12 +55,23 @@ export const pokemonReducer = createReducer(pokemonInitialState, (builder) => {
       )
       state.pokemon[findIndexPokemon] = pokemonSelected
     })
-    .addCase(requestPokemon, (state, action) => {
-      return action.payload
+    .addCase(openCloseModal, (state) => {
+      return { ...state, openModal: state.openModal === true ? false : true }
+    })
+    .addCase(requestPokemon, (state) => {
+      return { ...state, loading: !state.loading }
+    })
+    .addCase(requestSuccessPokemon, (state, action) => {
+      return {
+        ...state,
+        pokemon: [...state.pokemon, { ...action.payload.pokemon }],
+        openModal: action.payload.openModal,
+        loading: !state.loading
+      }
     })
     .addCase(errorRequestPokemon, (state, action) => {
       state.error = true
-      state.msgError = action.payload.data.error.message
+      state.msgError = action.payload.message
     })
     .addDefaultCase((state) => {
       return state
@@ -74,5 +84,7 @@ export {
   listPokemon,
   updatePokemon,
   errorRequestPokemon,
-  requestPokemon
+  requestPokemon,
+  requestSuccessPokemon,
+  openCloseModal
 }

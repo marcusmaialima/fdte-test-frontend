@@ -1,6 +1,8 @@
 import React from 'react'
 
 import GlobalStyled from 'assets/styles/globalStyled'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import Routes from './config/routes'
 
 function App() {

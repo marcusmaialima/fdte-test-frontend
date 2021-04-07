@@ -27,17 +27,21 @@ export const SideBarItem = styled.li`
   color: #004a45;
   cursor: pointer;
   transition: all 0.2s;
-  background-color: #00d68f;
+  background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   &:hover {
     background-color: #004a45;
-    color: #00d68f;
+    color: #fff;
   }
 
   &:not(last-of-type) {
     margin-bottom: 1.6rem;
   }
+`
+
+export const PokemonImage = styled.img`
+  width: 40px;
 `

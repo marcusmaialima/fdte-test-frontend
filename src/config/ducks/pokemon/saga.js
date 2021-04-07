@@ -1,24 +1,47 @@
-import { call } from 'redux-saga/effects'
-// import {
-//   addPokemon,
-//   removePokemon,
-//   listPokemon,
-//   updatePokemon,
-//   errorRequestPokemon
-// } from './index'
+import { call, put } from 'redux-saga/effects'
+import { requestSuccessPokemon, errorRequestPokemon } from './index'
 
 import api from '../../api'
 
 export function* requestAPIPokemon(action) {
   try {
-    console.log(action, 'action')
-
     const id = action.payload
 
-    const dataPokemon = yield call(api.get, `pokemon/${id}`)
+    const { data } = yield call(api.get, `pokemon/${id}`)
 
-    console.log(dataPokemon, 'dataPokemon')
+    const typesPokemon = data.types.map((value) => {
+      return value.type.name
+    })
+
+    const abilitiesPokemon = data.abilities.map((value) => {
+      return value.ability.name
+    })
+
+    const statusPokemon = data.stats.map((value) => {
+      return value.base_stat
+    })
+
+    const payload = {
+      pokemon: {
+        id: id,
+        pictureFront: data.sprites.front_default,
+        name: data.name,
+        weight: data.weight,
+        height: data.height,
+        type: typesPokemon,
+        abilities: abilitiesPokemon,
+        hp: statusPokemon[0],
+        attack: statusPokemon[1],
+        defense: statusPokemon[2],
+        specialAttack: statusPokemon[3],
+        specialDefense: statusPokemon[4],
+        speed: statusPokemon[5]
+      },
+      openModal: true
+    }
+
+    yield put(requestSuccessPokemon(payload))
   } catch (err) {
-    console.log(err)
+    yield put(errorRequestPokemon(err))
   }
 }

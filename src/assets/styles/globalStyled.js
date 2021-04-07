@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import '../../../node_modules/animate.css'
 
 export default createGlobalStyle`
   * {
@@ -10,7 +11,7 @@ export default createGlobalStyle`
 
   html {
     font-size: 62.5%;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Open Sans', sans-serif;
     -ms-overflow-style: scrollbar;
   }
 
@@ -66,5 +67,40 @@ export default createGlobalStyle`
 
   ul {
     list-style: none;
+  }
+
+  .container__modalComponent {
+    max-width: 450px;
+
+    @media(max-width: 500px) {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      max-width: 500px;
+    }
+
+    @media(min-width: 501px) and (max-width: 576px) {
+      max-width: 100%;
+      margin: 25px;
+    }
+  }
+
+  .modal-content {
+    border: none;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 1rem;
+
+    @media(max-width: 500px) {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      margin: 0px;
+      max-width: 500px;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 `
