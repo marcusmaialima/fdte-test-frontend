@@ -21,18 +21,10 @@ const pokemonInitialState = {
 export const pokedex = createReducer(pokemonInitialState, (builder) => {
   builder
     .addCase(addPokemon, (state, action) => {
-      if (state.capturePokemon.length >= 6) {
-        return {
-          ...state,
-          msgError: 'Não é possível procurar mais que 6 pokémon.',
-          error: true
-        }
-      } else {
-        return {
-          ...state,
-          pokemon: [],
-          capturePokemon: [...state.capturePokemon, { ...action.payload }]
-        }
+      return {
+        ...state,
+        pokemon: [],
+        capturePokemon: [...state.capturePokemon, { ...action.payload }]
       }
     })
     .addCase(removePokemon, (state, action) => {
@@ -81,8 +73,9 @@ export const pokedex = createReducer(pokemonInitialState, (builder) => {
     .addCase(errorRequestPokemon, (state, action) => {
       return {
         ...state,
+        loading: false,
         error: true,
-        msgError: action.payload.message
+        msgError: action.payload
       }
     })
     .addDefaultCase((state) => {

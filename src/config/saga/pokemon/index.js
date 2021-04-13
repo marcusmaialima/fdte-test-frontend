@@ -1,4 +1,4 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 import {
   requestSuccessPokemon,
   errorRequestPokemon
@@ -9,6 +9,15 @@ import api from '../../api'
 export function* requestAPIPokemon(action) {
   try {
     const id = action.payload
+
+    const pokedexState = (state) => state
+    const { pokedex } = yield select(pokedexState)
+
+    if (pokedex.capturePokemon.length >= 6) {
+      const messageError = 'Não é possível capturar mais que 6 pokémon'
+      yield put(errorRequestPokemon(messageError))
+      return
+    }
 
     const { data } = yield call(api.get, `pokemon/${id}`)
 
