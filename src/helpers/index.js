@@ -1,8 +1,8 @@
-function getRandomNumber(numberMin, numberMax) {
+export function getRandomNumber(numberMin, numberMax) {
   return Math.floor(Math.random() * (numberMax - numberMin + 1)) + numberMin
 }
 
-function translateAndColorTypesPokemon(type) {
+export function translateAndColorTypesPokemon(type) {
   const typesPokemon = {
     normal: () => {
       return {
@@ -28,7 +28,7 @@ function translateAndColorTypesPokemon(type) {
         color: '#7361d1'
       }
     },
-    eletric: () => {
+    electric: () => {
       return {
         name: 'elétrico',
         color: '#e08d00'
@@ -116,5 +116,3 @@ function translateAndColorTypesPokemon(type) {
 
   return typesPokemon[type]()
 }
-
-export { getRandomNumber, translateAndColorTypesPokemon }
