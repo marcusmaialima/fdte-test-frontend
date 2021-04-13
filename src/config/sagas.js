@@ -1,7 +1,7 @@
 import { all, takeLatest } from 'redux-saga/effects'
-import { requestPokemon } from './ducks/pokemon'
+import { requestPokemon } from './store/pokemon/index'
 
-import { requestAPIPokemon } from './ducks/pokemon/saga'
+import { requestAPIPokemon } from './saga/pokemon/index'
 
 export function* rootSaga() {
   yield all([takeLatest(requestPokemon, requestAPIPokemon)])

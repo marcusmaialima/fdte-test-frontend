@@ -1,5 +1,8 @@
 import { call, put } from 'redux-saga/effects'
-import { requestSuccessPokemon, errorRequestPokemon } from './index'
+import {
+  requestSuccessPokemon,
+  errorRequestPokemon
+} from '../../store/pokemon/index'
 
 import api from '../../api'
 

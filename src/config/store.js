@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './sagas'
-import { pokedex } from './ducks/pokemon/index'
+import { pokedex } from './store/pokemon/index'
 
 const middlewares = []
 const sagaMiddleware = createSagaMiddleware()

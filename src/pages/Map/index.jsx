@@ -16,7 +16,7 @@ import {
   openCloseModal,
   removePokemon,
   addPokemon
-} from 'config/ducks/pokemon'
+} from 'config/store/pokemon/index'
 
 const MapPage = () => {
   const [imageBallon, setImageBallon] = useState('')
