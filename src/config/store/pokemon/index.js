@@ -46,14 +46,23 @@ export const pokedex = createReducer(pokemonInitialState, (builder) => {
       }
     })
     .addCase(listPokemon, (state) => {
-      return state
+      return {
+        ...state
+      }
     })
     .addCase(updatePokemon, (state, action) => {
       const pokemonSelected = action.payload.pokemon
       const findIndexPokemon = state.pokemon.findIndex(
         (pokemon) => pokemon.id === pokemonSelected.id
       )
-      state.pokemon[findIndexPokemon] = pokemonSelected
+      const updatePoke = state.pokemon.map((poke) => {
+        poke[findIndexPokemon] = pokemonSelected
+      })
+
+      return {
+        ...state,
+        pokemon: [...state.pokemon, ...updatePoke]
+      }
     })
     .addCase(openCloseModal, (state) => {
       return { ...state, openModal: state.openModal === true ? false : true }
@@ -70,11 +79,16 @@ export const pokedex = createReducer(pokemonInitialState, (builder) => {
       }
     })
     .addCase(errorRequestPokemon, (state, action) => {
-      state.error = true
-      state.msgError = action.payload.message
+      return {
+        ...state,
+        error: true,
+        msgError: action.payload.message
+      }
     })
     .addDefaultCase((state) => {
-      return state
+      return {
+        ...state
+      }
     })
 })
 
