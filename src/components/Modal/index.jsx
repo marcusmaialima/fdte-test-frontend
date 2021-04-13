@@ -61,11 +61,16 @@ const ModalComponent = ({
                   <S.RowTypes>
                     {pokemon?.type.map((type) => {
                       const poke = translateAndColorTypesPokemon(type)
-                      return (
-                        <S.FlagType key={type} bgColor={poke.color}>
-                          {poke.name}
-                        </S.FlagType>
-                      )
+                      if (type) {
+                        return (
+                          <S.FlagType
+                            key={poke.name + pokemon.id}
+                            bgColor={poke.color}
+                          >
+                            {poke.name}
+                          </S.FlagType>
+                        )
+                      }
                     })}
                   </S.RowTypes>
                   <S.RowLine>

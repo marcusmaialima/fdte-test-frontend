@@ -31,14 +31,18 @@ const MapPage = () => {
   const store = useStore().getState()
 
   useEffect(() => {
-    setImageBallon(searchTooltip)
-  }, [])
-
-  useEffect(() => {
     setModalShow(pokedex.openModal)
   }, [dispatch, pokedex])
 
+  useEffect(() => {
+    if (store.pokedex?.error && store.pokedex?.msgError) {
+      setImageBallon(tooltipError)
+      setWalking(false)
+    }
+  }, [store])
+
   function animateTooltipOver() {
+    setImageBallon(searchTooltip)
     setOpacityImage(1)
     setTopBallon('-20%')
   }
@@ -56,21 +60,15 @@ const MapPage = () => {
     setImageBallon(searchingTooltip)
     setWalking(true)
 
-    if (store.pokedex?.error && store.pokedex?.capturePokemon.length >= 6) {
-      setImageBallon(tooltipError)
-      setWalking(false)
-
-      setTimeout(() => {
-        setImageBallon(searchTooltip)
-      }, 2000)
-      return
-    }
+    setTimeout(() => {
+      setImageBallon(searchTooltip)
+    }, 2000)
 
     const id = getRandomNumber(1, 807)
     setIdPokemon(id)
 
     dispatch(requestPokemon(id))
-  }, [dispatch, store])
+  }, [dispatch])
 
   function initialStateAnimation() {
     setOpacityImage(0)
