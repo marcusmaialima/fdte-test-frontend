@@ -4,7 +4,11 @@ import Modal from 'react-bootstrap/Modal'
 import * as S from './styled'
 import pokebola from 'assets/images/pokeball.png'
 import closeIcon from 'assets/images/close.png'
-import { returnColorForTypesPokemon, translateTypesPokemon } from 'helpers'
+import {
+  // returnColorForTypesPokemon,
+  // translateTypesPokemon,
+  translateAndColorTypesPokemon
+} from 'helpers'
 
 const ModalComponent = ({
   show,
@@ -56,12 +60,10 @@ const ModalComponent = ({
                   </S.RowLine>
                   <S.RowTypes>
                     {pokemon?.type.map((type) => {
+                      const poke = translateAndColorTypesPokemon(type)
                       return (
-                        <S.FlagType
-                          key={type}
-                          bgColor={returnColorForTypesPokemon(type)}
-                        >
-                          {translateTypesPokemon(type)}
+                        <S.FlagType key={type} bgColor={poke.color}>
+                          {poke.name}
                         </S.FlagType>
                       )
                     })}

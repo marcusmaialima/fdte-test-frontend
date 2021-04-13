@@ -2,54 +2,119 @@ function getRandomNumber(numberMin, numberMax) {
   return Math.floor(Math.random() * (numberMax - numberMin + 1)) + numberMin
 }
 
-function translateTypesPokemon(types) {
-  const translate = {
-    normal: 'normal',
-    bug: 'inseto',
-    dark: 'noturno',
-    dragon: 'dragão',
-    eletric: 'elétrico',
-    fairy: 'fada',
-    fighting: 'lutador',
-    fire: 'fogo',
-    flying: 'voador',
-    ghost: 'fantasma',
-    grass: 'grama',
-    ground: 'terrestre',
-    ice: 'gelo',
-    poison: 'veneno',
-    psychic: 'psíquico',
-    rock: 'pedra',
-    steel: 'aço',
-    water: 'água'
+function translateAndColorTypesPokemon(type) {
+  const typesPokemon = {
+    normal: () => {
+      return {
+        name: 'normal',
+        color: '#c4c0b4'
+      }
+    },
+    bug: () => {
+      return {
+        name: 'inseto',
+        color: '#87950c'
+      }
+    },
+    dark: () => {
+      return {
+        name: 'noturno',
+        color: '#413831'
+      }
+    },
+    dragon: () => {
+      return {
+        name: 'dragão',
+        color: '#7361d1'
+      }
+    },
+    eletric: () => {
+      return {
+        name: 'elétrico',
+        color: '#e08d00'
+      }
+    },
+    fairy: () => {
+      return {
+        name: 'fada',
+        color: '#e29fe6'
+      }
+    },
+    fighting: () => {
+      return {
+        name: 'lutador',
+        color: '#852816'
+      }
+    },
+    fire: () => {
+      return {
+        name: 'fogo',
+        color: '#cf2c03'
+      }
+    },
+    flying: () => {
+      return {
+        name: 'voador',
+        color: '#8fa4ff'
+      }
+    },
+    ghost: () => {
+      return {
+        name: 'fantasma',
+        color: '#6969af'
+      }
+    },
+    grass: () => {
+      return {
+        name: 'grama',
+        color: '#67af32'
+      }
+    },
+    ground: () => {
+      return {
+        name: 'terrestre',
+        color: '#c5a455'
+      }
+    },
+    ice: () => {
+      return {
+        name: 'gelo',
+        color: '#b4edf8'
+      }
+    },
+    poison: () => {
+      return {
+        name: 'veneno',
+        color: '#924990'
+      }
+    },
+    psychic: () => {
+      return {
+        name: 'psíquico',
+        color: '#e25484'
+      }
+    },
+    rock: () => {
+      return {
+        name: 'pedra',
+        color: '#5e491c'
+      }
+    },
+    steel: () => {
+      return {
+        name: 'aço',
+        color: '#7f8488'
+      }
+    },
+    water: () => {
+      return {
+        name: 'água',
+        color: '#3b9bf1'
+      }
+    }
   }
 
-  return translate[types]
+  return typesPokemon[type]()
 }
 
-function returnColorForTypesPokemon(types) {
-  const color = {
-    normal: '#c4c0b4',
-    bug: '#87950c',
-    dark: '#413831',
-    dragon: '#7361d1',
-    eletric: '#e08d00',
-    fairy: '#e29fe6',
-    fighting: '#852816',
-    fire: '#cf2c03',
-    flying: '#8fa4ff',
-    ghost: '#6969af',
-    grass: '#67af32',
-    ground: '#c5a455',
-    ice: '#b4edf8',
-    poison: '#924990',
-    psychic: '#e25484',
-    rock: '#5e491c',
-    steel: '#7f8488',
-    water: '#3b9bf1'
-  }
-
-  return color[types]
-}
-
-export { getRandomNumber, translateTypesPokemon, returnColorForTypesPokemon }
+export { getRandomNumber, translateAndColorTypesPokemon }
